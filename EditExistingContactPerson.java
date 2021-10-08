@@ -8,27 +8,27 @@ public class EditExistingContactPerson {
 
 	public static void main(String[] args) {
 		int i = 0;
-	EditExistingContactPerson obj = new EditExistingContactPerson();{
+		EditExistingContactPerson obj = new EditExistingContactPerson();{
 
-		while (i == 0) {
-			System.out.println("Do you want add new Contact/Edit existing contact: ");
-			System.out.println("1.Add details.\n2.Edit details.");
-			int choose = sc.nextInt();
-			switch (choose) {
-			case 1:
-				obj.addbooklist();
-				break;
-			case 2:
-				obj.editbooklist();
-				break;
-			default:
-				i = 1;
-				System.out.println("Wrong option");
-				obj.addbooklist();
-				break;
+			while (i == 0) {
+				System.out.println("Do you want add new Contact/Edit existing contact: ");
+				System.out.println("1.Add details.\n2.Edit details.");
+				int choose = sc.nextInt();
+				switch (choose) {
+				case 1:
+					obj.addbooklist();
+					break;
+				case 2:
+					obj.editbooklist();
+					break;
+				default:
+					i = 1;
+					System.out.println("Wrong option");
+					obj.addbooklist();
+					break;
+				}
 			}
 		}
-	}
 	}
 	public void addbooklist() {
 		booklist book = new booklist();
@@ -106,5 +106,19 @@ public class EditExistingContactPerson {
 			} else
 				System.out.println("Enter valid First name");
 		}
+	}
+
+public void deleteContactDetails() {
+
+	System.out.println("Confirm your first name to edit details: ");
+	String name = sc.next();
+
+	for (int i = 0; i < booklist.size(); i++) {
+		if (booklist.get(i).getFirstname().equals(name)) {
+			System.out.println("Select form below to change: ");
+			booklist.remove(i);
+		}
+	}
+	System.out.println(booklist);
 }
 }
