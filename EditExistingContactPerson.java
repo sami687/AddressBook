@@ -54,7 +54,6 @@ public class EditExistingContactPerson {
 		book.setZip(sc.next());
 		System.out.println("Enter the Phone Number of person : ");
 		book.setPhonenumber(sc.next());
-		booklist.add(book);
 		System.out.println(booklist.toString());
 	}
 
