@@ -7,12 +7,13 @@ public class EditExistingContactPerson {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
+
 		int i = 0;
 		EditExistingContactPerson obj = new EditExistingContactPerson();{
 
 			while (i == 0) {
-				System.out.println("Do you want add new Contact/Edit existing contact: ");
-				System.out.println("1.Add details.\n2.Edit details.");
+				System.out.println("Do you want add new Contact/Edit existing contact/Delete Existing contact: ");
+				System.out.println("1.Add details.\n2.Edit details.\n3.Delete details.");
 				int choose = sc.nextInt();
 				switch (choose) {
 				case 1:
@@ -20,6 +21,9 @@ public class EditExistingContactPerson {
 					break;
 				case 2:
 					obj.editbooklist();
+					break;
+				case 3:
+					obj.deleteContactDetails();
 					break;
 				default:
 					i = 1;
@@ -34,7 +38,7 @@ public class EditExistingContactPerson {
 		booklist book = new booklist();
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the First name of persn : ");
+		System.out.println("Enter the First name of person : ");
 		book.setFirstname(sc.next());
 		System.out.println("Enter the Last name of person : ");
 		book.setLastname(sc.next());
@@ -50,10 +54,9 @@ public class EditExistingContactPerson {
 		book.setZip(sc.next());
 		System.out.println("Enter the Phone Number of person : ");
 		book.setPhonenumber(sc.next());
-		System.out.println(book.toString());
-
+		booklist.add(book);
+		System.out.println(booklist.toString());
 	}
-
 
 	private void editbooklist() {
 		System.out.println("Confirm your first name to edit details: ");
@@ -108,17 +111,15 @@ public class EditExistingContactPerson {
 		}
 	}
 
-public void deleteContactDetails() {
+	public void deleteContactDetails() {
 
-	System.out.println("Confirm your first name to edit details: ");
-	String name = sc.next();
+		System.out.println("Confirm your first name to delete details: ");
+		String name = sc.next();
 
-	for (int i = 0; i < booklist.size(); i++) {
-		if (booklist.get(i).getFirstname().equals(name)) {
-			System.out.println("Select form below to change: ");
-			booklist.remove(i);
+		for (int i = 0; i < booklist.size(); i++) {
+			if (booklist.get(i).getFirstname().equals(name)) {
+				booklist.remove(i);
+			}
 		}
 	}
-	System.out.println(booklist);
-}
 }
